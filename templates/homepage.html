@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EasyPay</title>
+    <link href = "bootstraplink.css" rel="stylesheet">
+
+    <link rel="stylesheet" 
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href = "/static/style.css" rel = "stylesheet">
+    <script src = "https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+</head>
+
+<body class="homepage-body">
+
+<div class="homepage-container"> 
+  <nav class="navbar navbar-default">
+          <div class="container-fluid">
+              <div class="navbar-header">
+                  <a id="nav-title" class="navbar-brand xyz" href='/'>Sam Smith</a>
+              </div>
+              <div id="navbar">
+                  <ul class="nav navbar-nav navbar-right xyz">
+                      <li><a href="/">Home</a></li>
+                      <li><a href="/">About</a></li>
+                      <li><a href="/">Areas & Prices</a></li>
+                      <li><a href="/">Gallery</a></li>
+                      <li><a href="/">Products</a></li>
+                      {% if "user_id" in session %}
+                          <li><a href="/account-page">My Account</a></li>
+                      {% else %}
+                          <li><a href="/login">My Account</a></li>
+                      {% endif %}
+                      <li><a href="/">Contact</a></li>
+                      {% if "user_id" in session %}
+                          <li><a href="/logout">Logout</a></li>
+                      {% else %}
+                          <li><a href="/login">Login</a></li>
+                      {% endif %}
+
+                  </ul>
+              </div>
+          </div>
+  </nav>
+
+  {% for flash in get_flashed_messages() %}
+    {{ flash }}
+  {% endfor %}
+  
+
+  <div class="container-fluid1">
+
+      <img src="/static/sam_smith_photo1.jpg" id="portrait">
+
+    <div id="main-title">
+      <h1>Sam Smith</h1>
+      <h3> Dentist and owner of Ecladent. Passionate about FACIAL AESTHETICS</h3>
+      <br>
+      <form action="/login">
+        <input type="submit" id="homepage-button" value="Get Started!" />
+      </form>
+    </div>
+</div> 
+<br><br>
+
+<br><br>
+</div>
+</body>
+</html>
